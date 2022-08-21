@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var newsTable: UITableView!
      
     var newsManager = NewsManager()
+    let cellSpacingHeight: CGFloat = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +43,6 @@ extension ViewController: UITextFieldDelegate{
         
         //Dismiss keyboard upon search complete
         searchNews.endEditing(true)
-        
-        print(searchNews.text!)
         return true
     }
 
@@ -94,13 +93,19 @@ extension ViewController: UITableViewDataSource{
     
     func tableView(_ newsTable: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return 30
         
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    // Set the spacing between sections
+    func tableView(_ newsTable: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
+    
     
     // Creating the cells to populate the table
     
@@ -109,9 +114,14 @@ extension ViewController: UITableViewDataSource{
         let cell = newsTable.dequeueReusableCell(withIdentifier: "celline", for: indexPath) as! NewsCell
         
         cell.backgroundColor = UIColor.lightGray
+//        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.layer.borderWidth = 2
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
         
         cell.title.text = "Lmao Test"
-//        cell.imgView.image = UIImage(named: "Star")
+        cell.imgView.image = UIImage(named: "Star")
         
         return cell
     }
