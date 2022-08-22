@@ -113,8 +113,9 @@ extension ViewController: UITableViewDataSource{
         
         let cell = newsTable.dequeueReusableCell(withIdentifier: "celline", for: indexPath) as! NewsCell
         
+        //Customizing the cell
+        
         cell.backgroundColor = UIColor.lightGray
-//        cell.layer.cornerRadius = 10
         cell.layer.borderColor = UIColor.clear.cgColor
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 8
