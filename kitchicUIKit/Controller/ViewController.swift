@@ -127,11 +127,18 @@ extension ViewController: UITableViewDataSource{
         cell.layer.cornerRadius = 8
         cell.clipsToBounds = true
         
-        cell.title.text = "Lmao veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long test"
+        cell.title.text = "test test long long test"
+        cell.title.numberOfLines = 0
+        cell.title.sizeToFit()
+        cell.title.padding
         cell.desc.text = "emanuel has veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long description"
+        cell.desc.numberOfLines = 0
+        cell.desc.sizeToFit()
+        cell.desc.padding
         cell.imgView.image = UIImage(named: "Star")
         
         return cell
     }
     
 }
+
