@@ -8,16 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var searchNews: UITextField!
     @IBOutlet weak var newsTable: UITableView!
-     
+    
     var newsManager = NewsManager()
+    
     let cellSpacingHeight: CGFloat = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         // Making a clear background for the Table View
         
         newsTable.backgroundColor = .clear
@@ -45,7 +46,7 @@ extension ViewController: UITextFieldDelegate{
         searchNews.endEditing(true)
         return true
     }
-
+    
     //Checking if the user ended his search querry
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -58,6 +59,13 @@ extension ViewController: UITextFieldDelegate{
             searchNews.placeholder = "Search news"
             return false
         }
+    }
+    
+    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
     }
     
     //Clearing the text field after searching
@@ -86,7 +94,6 @@ extension ViewController: UITableViewDelegate {
     
 }
 
-
 extension ViewController: UITableViewDataSource{
     
     // Creating a func that returns a specific number of cells for the table
@@ -97,15 +104,15 @@ extension ViewController: UITableViewDataSource{
         
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     // Set the spacing between sections
-    func tableView(_ newsTable: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
     
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
     // Creating the cells to populate the table
     
@@ -117,11 +124,11 @@ extension ViewController: UITableViewDataSource{
         
         cell.backgroundColor = UIColor.lightGray
         cell.layer.borderColor = UIColor.clear.cgColor
-        cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 8
         cell.clipsToBounds = true
         
-        cell.title.text = "Lmao Test"
+        cell.title.text = "Lmao veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long test"
+        cell.desc.text = "emanuel has veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long description"
         cell.imgView.image = UIImage(named: "Star")
         
         return cell
