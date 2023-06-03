@@ -6,45 +6,75 @@
 //
 
 import UIKit
+import SafariServices
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate {
+
     
     @IBOutlet weak var searchNews: UITextField!
     @IBOutlet weak var newsTable: UITableView!
     
-    var newsManager = NewsManager()
     
     let cellSpacingHeight: CGFloat = 5
+    
+//    private var viewModels = [NewsTableCellViewModel]()
+//    private var articles = [NewsModel]()
+    
+    var model = ArticleModel()
+    var articles = [Article]()
+    var n = 0
+    var searchText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Making a clear background for the Table View
-        
-        newsTable.backgroundColor = .clear
-        newsTable.delegate = self
+
         newsTable.dataSource = self
-        
-        //Tapping into the search box
-        
+        newsTable.delegate = self
+        newsTable.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
+        newsTable.backgroundColor = UIColor.clear
+        newsTable.layer.backgroundColor = UIColor.clear.cgColor
         searchNews.delegate = self
+        model.delegate = self
+        model.getArticles()
         
     }
     
+    
 }
-
 // Creating extensions for Delegates & clean code
 
 
 extension ViewController: UITextFieldDelegate{
     
-    //Using the UITextFieldDelegate to create a func as an IBAction for search
+    func reloadData(){
+        self.newsTable.reloadData()
+        Values.searchItem = ""
+        self.searchNews.text = ""
+    }
+    
+    
+    @IBAction func searchPressed(_ sender: Any) {
+        searchNews.endEditing(true)
+        var searchText = searchNews.text?.lowercased()
+        Values.searchItem = searchText?.replacingOccurrences(of: " ", with: "_") ?? ""
+        model.getSearch()
+        reloadData()
+    }
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        //Dismiss keyboard upon search complete
-        searchNews.endEditing(true)
+        var searchText = searchNews.text?.lowercased()
+        Values.searchItem = searchText?.replacingOccurrences(of: " ", with: "_") ?? ""
+        model.getSearch()
+        searchNews.resignFirstResponder()
+        reloadData()
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        searchNews.text = ""
     }
     
     //Checking if the user ended his search querry
@@ -74,71 +104,76 @@ extension ViewController: UITextFieldDelegate{
         
         //Get a hold of the user search querry
         
-        if let interest = searchNews.text{
-            newsManager.getNews(searchItem: interest)
-        }
-        
         searchNews.text = ""
     }
-    
+
 }
 
 
-extension ViewController: UITableViewDelegate {
-    
-    // func for debug as of now
-    
-    func tableView(_ newsTable: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("i've been tapped")
+extension ViewController: UITableViewDataSource {
+        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return articles.count
+        
     }
     
-}
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        newsTable.deselectRow(at: indexPath, animated: true)
+        
+        let article = articles[indexPath.row]
+                
+        func openURL(_ urlString: Int) {
+            guard let url = URL(string: article.url ?? "www.google.com") else {
+                // not a valid URL
+                return
+            }
 
-extension ViewController: UITableViewDataSource{
-    
-    // Creating a func that returns a specific number of cells for the table
-    
-    func tableView(_ newsTable: UITableView, numberOfRowsInSection section: Int) -> Int {
+            if ["http", "https"].contains(url.scheme?.lowercased() ?? "") {
+                // Can open with SFSafariViewController
+                let config = SFSafariViewController.Configuration()
+                config.entersReaderIfAvailable = true
+                let safariViewController = SFSafariViewController(url: url, configuration: config)
+                self.present(safariViewController, animated: true)
+            } else {
+                // Scheme is not supported or no scheme is given, use openURL
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
         
-        return 30
+        openURL(indexPath.row)
         
-    }
-    
-    // Set the spacing between sections
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return cellSpacingHeight
-    }
-    
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    // Creating the cells to populate the table
-    
-    func tableView(_ newsTable: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = newsTable.dequeueReusableCell(withIdentifier: "celline", for: indexPath) as! NewsCell
+        }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! NewsCell
+//        cell.layer.backgroundColor = UIColor.clear.cgColor
         
-        //Customizing the cell
-        
-        cell.backgroundColor = UIColor.lightGray
-        cell.layer.borderColor = UIColor.clear.cgColor
-        cell.layer.cornerRadius = 8
+        let article = articles[indexPath.row]
         cell.clipsToBounds = true
-        
-        cell.title.text = "test test long long test"
-        cell.title.numberOfLines = 0
-        cell.title.sizeToFit()
-        cell.title.padding
-        cell.desc.text = "emanuel has veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long description"
-        cell.desc.numberOfLines = 0
-        cell.desc.sizeToFit()
-        cell.desc.padding
-        cell.imgView.image = UIImage(named: "Star")
-        
+        cell.backgroundColor = .clear
+        cell.cellTitle.text = articles[indexPath.row].title
+        cell.cellSource.text = articles[indexPath.row].source.name
+        cell.cellDescription.text = articles[indexPath.row].description
+        cell.displayArticle(article)
         return cell
     }
-    
 }
 
+
+extension ViewController:  ArticleModernProtocol{
+    
+    //MARK: - Article Model Protocol Methods
+    
+    func articleRetrived(_ article: [Article]) {
+        
+        // Set the articles property of the view controller to the articless passed back from the model
+        self.articles = article
+        
+        // Refresh the tableview
+        newsTable.reloadData()
+    }
+    
+}
