@@ -41,29 +41,6 @@ class ViewController: UIViewController, UITableViewDelegate {
         
     }
     
-    @IBAction func sciBtn(_ sender: Any) {
-        model.getSci()
-        reloadData()
-    }
-    
-    @IBAction func healthBtn(_ sender: Any) {
-        model.getHealth()
-        reloadData()
-    }
-    
-    
-    @IBAction func sportBtn(_ sender: Any) {
-        model.getSport()
-        reloadData()
-    }
-    
-    @IBAction func techBtn(_ sender: Any) {
-        model.getTech()
-        reloadData()
-    }
-    
-    
-    
 }
 // Creating extensions for Delegates & clean code
 
@@ -77,9 +54,8 @@ extension ViewController: UITextFieldDelegate{
     
     
     @IBAction func searchPressed(_ sender: Any) {
-        searchNews.endEditing(true)
-        let searchText = searchNews.text?.lowercased()
-        Values.searchItem = searchText?.replacingOccurrences(of: " ", with: "_") ?? ""
+        var searchText = searchNews.text?.lowercased()
+        Values.searchItem = searchText?.replacingOccurrences(of: " ", with: "%") ?? ""
         model.getSearch()
         reloadData()
     }
@@ -87,7 +63,7 @@ extension ViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         var searchText = searchNews.text?.lowercased()
-        Values.searchItem = searchText?.replacingOccurrences(of: " ", with: "_") ?? ""
+        Values.searchItem = searchText?.replacingOccurrences(of: " ", with: "%") ?? ""
         model.getSearch()
         searchNews.resignFirstResponder()
         reloadData()

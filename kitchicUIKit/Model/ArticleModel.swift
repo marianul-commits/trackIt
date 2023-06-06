@@ -112,11 +112,11 @@ class ArticleModel {
                     let articleService = try decoder.decode(ArticleService.self, from: data!)
                     
                     // Get the articles
-                    let articlesSearch = articleService.articles!
-                    
+                    let articles = articleService.articles!
+        
                     // Pass it back to the view controller in the main thread
                     DispatchQueue.main.async {
-                        self.delegate?.articleRetrived(articlesSearch)
+                        self.delegate?.articleRetrived(articles)
                     }
                     
                 }

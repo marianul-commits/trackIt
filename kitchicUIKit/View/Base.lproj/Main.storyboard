@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zoM-gx-NEj">
-                                <rect key="frame" x="0.0" y="179" width="393" height="673"/>
+                                <rect key="frame" x="0.0" y="147" width="393" height="705"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <sections/>
@@ -44,102 +44,21 @@
                                     <action selector="searchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sgz-2U-xGI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0j-nl-DoX">
-                                <rect key="frame" x="11" y="139" width="92" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Science">
-                                    <color key="titleColor" name="TitleCol"/>
-                                    <imageReference key="image" image="atom" catalog="system" symbolScale="small"/>
-                                </state>
-                                <buttonConfiguration key="configuration" style="filled" title="Science">
-                                    <imageReference key="image" image="atom" catalog="system" symbolScale="small"/>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
-                                    <color key="baseForegroundColor" name="TitleCol"/>
-                                    <color key="baseBackgroundColor" name="DescrCol"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="sciBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mgY-4m-i2s"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcz-tt-yqN">
-                                <rect key="frame" x="199" y="139" width="95" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title=" Sports">
-                                    <imageReference key="image" image="sportscourt" catalog="system" symbolScale="small"/>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
-                                    <color key="baseForegroundColor" name="TitleCol"/>
-                                    <color key="baseBackgroundColor" name="DescrCol"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="sportBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CTb-Nx-DmA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdp-og-dd1">
-                                <rect key="frame" x="299" y="139" width="83" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Tech">
-                                    <imageReference key="image" image="macbook.and.iphone" catalog="system" symbolScale="small"/>
-                                    <color key="baseForegroundColor" name="TitleCol"/>
-                                    <color key="baseBackgroundColor" name="DescrCol"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="techBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sZf-yF-Kn8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHq-xA-S1u">
-                                <rect key="frame" x="108" y="139" width="86" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Health">
-                                    <imageReference key="image" image="heart.fill" catalog="system" symbolScale="small"/>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
-                                    <color key="baseForegroundColor" name="TitleCol"/>
-                                    <color key="baseBackgroundColor" name="DescrCol"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="healthBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yc1-6y-Bpe"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="BDM-Sy-JYw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="37" id="08i-tK-8Pq"/>
                             <constraint firstItem="zoM-gx-NEj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="31c-gU-hIy"/>
-                            <constraint firstItem="zoM-gx-NEj" firstAttribute="top" secondItem="L0j-nl-DoX" secondAttribute="bottom" constant="5" id="57e-3F-B1h"/>
-                            <constraint firstItem="bdp-og-dd1" firstAttribute="top" secondItem="YHd-hl-pq7" secondAttribute="bottom" constant="9" id="58W-uk-5cn"/>
-                            <constraint firstItem="iHq-xA-S1u" firstAttribute="leading" secondItem="L0j-nl-DoX" secondAttribute="trailing" constant="5" id="7h1-U9-2Hc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bdp-og-dd1" secondAttribute="trailing" constant="11" id="8Zo-F7-H6c"/>
-                            <constraint firstItem="L0j-nl-DoX" firstAttribute="top" secondItem="BDM-Sy-JYw" secondAttribute="bottom" constant="9" id="9eU-70-J4E"/>
-                            <constraint firstItem="bdp-og-dd1" firstAttribute="top" secondItem="BDM-Sy-JYw" secondAttribute="bottom" constant="9" id="9fx-RE-V5t"/>
-                            <constraint firstItem="bdp-og-dd1" firstAttribute="leading" secondItem="wcz-tt-yqN" secondAttribute="trailing" constant="5" id="CaX-dj-7E1"/>
-                            <constraint firstItem="iHq-xA-S1u" firstAttribute="leading" secondItem="L0j-nl-DoX" secondAttribute="trailing" constant="5" id="Gnd-Ke-sQU"/>
-                            <constraint firstItem="iHq-xA-S1u" firstAttribute="leading" secondItem="L0j-nl-DoX" secondAttribute="trailing" constant="5" id="J0P-eY-IkB"/>
+                            <constraint firstItem="zoM-gx-NEj" firstAttribute="top" secondItem="BDM-Sy-JYw" secondAttribute="bottom" constant="17" id="CC3-qY-vjq"/>
                             <constraint firstItem="BDM-Sy-JYw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="KMh-Kz-3kF"/>
-                            <constraint firstItem="iHq-xA-S1u" firstAttribute="leading" secondItem="L0j-nl-DoX" secondAttribute="trailing" constant="5" id="NVa-3m-7Qp"/>
-                            <constraint firstItem="zoM-gx-NEj" firstAttribute="top" secondItem="bdp-og-dd1" secondAttribute="bottom" constant="5" id="NxT-Ov-Emr"/>
                             <constraint firstItem="YHd-hl-pq7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="QFi-OD-dzP"/>
-                            <constraint firstItem="zoM-gx-NEj" firstAttribute="top" secondItem="iHq-xA-S1u" secondAttribute="bottom" constant="5" id="RaW-do-VDn"/>
-                            <constraint firstItem="bdp-og-dd1" firstAttribute="leading" secondItem="wcz-tt-yqN" secondAttribute="trailing" constant="5" id="Ve5-av-Dmu"/>
-                            <constraint firstItem="wcz-tt-yqN" firstAttribute="top" secondItem="BDM-Sy-JYw" secondAttribute="bottom" constant="9" id="Xxy-7Y-LYc"/>
-                            <constraint firstItem="zoM-gx-NEj" firstAttribute="top" secondItem="wcz-tt-yqN" secondAttribute="bottom" constant="5" id="a7b-az-iF1"/>
-                            <constraint firstItem="L0j-nl-DoX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="11" id="aeA-CO-j0E"/>
-                            <constraint firstItem="wcz-tt-yqN" firstAttribute="leading" secondItem="iHq-xA-S1u" secondAttribute="trailing" constant="5" id="aj9-b4-E91"/>
-                            <constraint firstItem="iHq-xA-S1u" firstAttribute="top" secondItem="BDM-Sy-JYw" secondAttribute="bottom" constant="9" id="bbc-IB-wxt"/>
                             <constraint firstItem="YHd-hl-pq7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cDS-Jh-f44"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bdp-og-dd1" secondAttribute="trailing" constant="11" id="eV6-8Q-zrf"/>
                             <constraint firstItem="zoM-gx-NEj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ghT-K7-HY4"/>
-                            <constraint firstItem="bdp-og-dd1" firstAttribute="top" secondItem="YHd-hl-pq7" secondAttribute="bottom" constant="9" id="iCW-ma-xsI"/>
-                            <constraint firstItem="L0j-nl-DoX" firstAttribute="top" secondItem="BDM-Sy-JYw" secondAttribute="bottom" constant="9" id="kWF-tL-qjY"/>
                             <constraint firstItem="YHd-hl-pq7" firstAttribute="leading" secondItem="BDM-Sy-JYw" secondAttribute="trailing" constant="10" id="o4y-Jw-nZ7"/>
                             <constraint firstAttribute="bottom" secondItem="zoM-gx-NEj" secondAttribute="bottom" id="pkq-S0-M7X"/>
-                            <constraint firstItem="wcz-tt-yqN" firstAttribute="leading" secondItem="iHq-xA-S1u" secondAttribute="trailing" constant="5" id="q7F-5n-8tm"/>
-                            <constraint firstItem="wcz-tt-yqN" firstAttribute="leading" secondItem="iHq-xA-S1u" secondAttribute="trailing" constant="5" id="sPR-RJ-xht"/>
-                            <constraint firstItem="L0j-nl-DoX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="11" id="sVb-M1-B70"/>
-                            <constraint firstItem="bdp-og-dd1" firstAttribute="leading" secondItem="wcz-tt-yqN" secondAttribute="trailing" constant="5" id="v7L-lc-405"/>
                             <constraint firstItem="YHd-hl-pq7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="z5d-c4-zTK"/>
                             <constraint firstItem="YHd-hl-pq7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zYi-h1-E1a"/>
-                            <constraint firstItem="zoM-gx-NEj" firstAttribute="top" secondItem="L0j-nl-DoX" secondAttribute="bottom" constant="5" id="zfm-yb-SlY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zf7-oO-ewl"/>
@@ -154,16 +73,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="atom" catalog="system" width="122" height="128"/>
-        <image name="heart.fill" catalog="system" width="128" height="107"/>
-        <image name="macbook.and.iphone" catalog="system" width="128" height="73"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-        <image name="sportscourt" catalog="system" width="128" height="83"/>
         <namedColor name="Background">
-            <color red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="DescrCol">
-            <color red="0.35294117647058826" green="0.35294117647058826" blue="0.35294117647058826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97254901960784312" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TitleCol">
             <color red="0.90196078431372551" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

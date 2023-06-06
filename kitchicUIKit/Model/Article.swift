@@ -26,6 +26,6 @@ struct Article: Decodable {
 struct ArticleService: Decodable {
     
     var totalResults:Int?
-    var articles:[Article]?
+    var articles: [Article]?
     
 }
