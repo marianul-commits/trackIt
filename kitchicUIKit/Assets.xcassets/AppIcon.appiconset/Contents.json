@@ -6,6 +6,7 @@
       "size" : "20x20"
     },
     {
+      "filename" : "Hotpot@2x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
@@ -16,6 +17,7 @@
       "size" : "29x29"
     },
     {
+      "filename" : "Hotpot@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
@@ -26,6 +28,7 @@
       "size" : "40x40"
     },
     {
+      "filename" : "Hotpot@3x 1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
@@ -36,6 +39,7 @@
       "size" : "60x60"
     },
     {
+      "filename" : "Hotpot@3x 2.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"

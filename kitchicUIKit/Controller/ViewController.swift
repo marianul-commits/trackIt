@@ -41,6 +41,28 @@ class ViewController: UIViewController, UITableViewDelegate {
         
     }
     
+    @IBAction func sciBtn(_ sender: Any) {
+        model.getSci()
+        reloadData()
+    }
+    
+    @IBAction func healthBtn(_ sender: Any) {
+        model.getHealth()
+        reloadData()
+    }
+    
+    
+    @IBAction func sportBtn(_ sender: Any) {
+        model.getSport()
+        reloadData()
+    }
+    
+    @IBAction func techBtn(_ sender: Any) {
+        model.getTech()
+        reloadData()
+    }
+    
+    
     
 }
 // Creating extensions for Delegates & clean code
@@ -51,13 +73,12 @@ extension ViewController: UITextFieldDelegate{
     func reloadData(){
         self.newsTable.reloadData()
         Values.searchItem = ""
-        self.searchNews.text = ""
     }
     
     
     @IBAction func searchPressed(_ sender: Any) {
         searchNews.endEditing(true)
-        var searchText = searchNews.text?.lowercased()
+        let searchText = searchNews.text?.lowercased()
         Values.searchItem = searchText?.replacingOccurrences(of: " ", with: "_") ?? ""
         model.getSearch()
         reloadData()
