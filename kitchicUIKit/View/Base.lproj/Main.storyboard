@@ -30,7 +30,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHd-hl-pq7">
-                                <rect key="frame" x="345" y="95" width="48" height="35"/>
+                                <rect key="frame" x="334" y="95" width="48" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ZgF-tw-erx"/>
                                     <constraint firstAttribute="width" constant="48" id="p4Y-p9-N3E"/>
@@ -53,12 +53,12 @@
                             <constraint firstItem="zoM-gx-NEj" firstAttribute="top" secondItem="BDM-Sy-JYw" secondAttribute="bottom" constant="17" id="CC3-qY-vjq"/>
                             <constraint firstItem="BDM-Sy-JYw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="KMh-Kz-3kF"/>
                             <constraint firstItem="YHd-hl-pq7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="QFi-OD-dzP"/>
-                            <constraint firstItem="YHd-hl-pq7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cDS-Jh-f44"/>
+                            <constraint firstItem="YHd-hl-pq7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-11" id="cDS-Jh-f44"/>
                             <constraint firstItem="zoM-gx-NEj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ghT-K7-HY4"/>
-                            <constraint firstItem="YHd-hl-pq7" firstAttribute="leading" secondItem="BDM-Sy-JYw" secondAttribute="trailing" constant="10" id="o4y-Jw-nZ7"/>
+                            <constraint firstItem="YHd-hl-pq7" firstAttribute="leading" secondItem="BDM-Sy-JYw" secondAttribute="trailing" constant="-1" id="o4y-Jw-nZ7"/>
                             <constraint firstAttribute="bottom" secondItem="zoM-gx-NEj" secondAttribute="bottom" id="pkq-S0-M7X"/>
                             <constraint firstItem="YHd-hl-pq7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="z5d-c4-zTK"/>
-                            <constraint firstItem="YHd-hl-pq7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zYi-h1-E1a"/>
+                            <constraint firstItem="YHd-hl-pq7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-11" id="zYi-h1-E1a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zf7-oO-ewl"/>

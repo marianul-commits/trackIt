@@ -25,6 +25,8 @@ class ViewController: UIViewController, UITableViewDelegate {
     var n = 0
     var searchText = ""
     
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +41,32 @@ class ViewController: UIViewController, UITableViewDelegate {
         model.delegate = self
         model.getArticles()
         
+        
+        // Header + Label + Pull to refresh
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 0))
+        
+        let label = PaddingLabel(frame: CGRect(x: 0, y: 0, width: 500, height: 30))
+        label.topInset = 5.0 //by default
+        label.bottomInset = 5.0 //by default
+        label.leftInset = 7.0 //by default
+        label.rightInset = 7.0 //by default
+        label.text = "Top Stories"
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+        label.textColor = UIColor(named: "TitleCol")
+        label.textAlignment = .left
+        header.addSubview(label)
+        newsTable.refreshControl = refreshControl
+        newsTable.tableHeaderView = header
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+            
+        
+    }
+    
+    @objc func refresh(_ sender: AnyObject){
+        model.getArticles()
+        newsTable.reloadData()
+        refreshControl.endRefreshing()
     }
     
 }
