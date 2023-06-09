@@ -23,6 +23,8 @@ static let apiKey = "YOUR_API_KEY"
 
 • Displays the top news stories parsed from the News API
 
+• MVC Design
+
 • Search for news in your interest
 
 • Self developed UI inspired by Apple
