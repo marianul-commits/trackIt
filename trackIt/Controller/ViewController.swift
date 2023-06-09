@@ -160,7 +160,6 @@ extension ViewController: UITableViewDataSource {
                 let safariViewController = SFSafariViewController(url: url, configuration: config)
                 self.present(safariViewController, animated: true)
             } else {
-                // Scheme is not supported or no scheme is given, use openURL
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
