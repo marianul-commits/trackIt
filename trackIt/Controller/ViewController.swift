@@ -22,7 +22,6 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     var model = ArticleModel()
     var articles = [Article]()
-    var n = 0
     var searchText = ""
     
     let refreshControl = UIRefreshControl()
@@ -175,7 +174,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! NewsCell
 //        cell.layer.backgroundColor = UIColor.clear.cgColor
-        
+                
         let article = articles[indexPath.row]
         cell.clipsToBounds = true
         cell.backgroundColor = .clear

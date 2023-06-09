@@ -14,7 +14,7 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var cellSource: UILabel!
     @IBOutlet weak var descrView: UIView!
     @IBOutlet weak var cellDescription: UILabel!
-   
+    
     var articleToDisplay:Article?
     
     func displayArticle(_ article: Article){
