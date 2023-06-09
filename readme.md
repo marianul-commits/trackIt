@@ -18,13 +18,13 @@ static let apiKey = "YOUR_API_KEY"
 ## Features
 
 ### Light & Dark Mode
-![Alt text](https://github.com/marianul-commits/trackIt/blob/main/export1F62F657-B20D-4938-AF80-D5A20A648595.png "Light Mode")
+![Alt text](https://github.com/marianul-commits/trackIt/blob/main/Photos/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20-%202023-06-09%20at%2011.43.03.png "Light Mode")
 
-![Alt text](https://github.com/marianul-commits/trackIt/blob/main/exportACFFCAF5-2A3D-4015-A444-3B094DE810FE.png "Dark Mode")
+![Alt text](https://github.com/marianul-commits/trackIt/blob/main/Photos/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20-%202023-06-09%20at%2011.42.38.png "Dark Mode")
 
 ### Links open directly in reader mode
 
-![Alt text](https://github.com/marianul-commits/trackIt/blob/main/exportDD1ADB30-D961-4945-AE39-98FD82A051B1.png "Reader Mode")
+![Alt text](https://github.com/marianul-commits/trackIt/blob/main/Photos/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20-%202023-06-09%20at%2011.43.16.png "Reader Mode")
 
 
 ## License
