@@ -265,7 +265,7 @@ class ArticleModel {
         // Fire off the request to the API
         
         // Create a string URL
-        let stringUrl = Values.sportNews
+        let stringUrl = Values.techNews
         
         // Create a URL object
         let url = URL(string: stringUrl)
@@ -324,7 +324,7 @@ class ArticleModel {
         // Fire off the request to the API
         
         // Create a string URL
-        let stringUrl = Values.healthNews
+        let stringUrl = Values.sportNews
         
         // Create a URL object
         let url = URL(string: stringUrl)
