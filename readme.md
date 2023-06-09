@@ -22,8 +22,11 @@ static let apiKey = "YOUR_API_KEY"
 ## Features
 
 • Displays the top news stories parsed from the News API
+
 • Search for news in your interest
+
 • Self developed UI inspired by Apple
+
 • Loads news content with in-app browser using WebKit
 
 ### Light & Dark Mode
