@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UICollectionViewDel
     var model = ArticleModel()
     var articles = [Article]()
     var searchText = ""
-    let weekdays = ["Home", "Tech", "Science", "Health", "Sport", "General", "Pastime", "Business"]
+    let categories = ["Home", "Tech", "Science", "Health", "Sport", "General", "Pastime", "Business"]
     
     let refreshControl = UIRefreshControl()
     
@@ -181,7 +181,7 @@ extension ViewController: UITableViewDataSource {
         stackView.distribution = .fill
         stackView.spacing = 8
         
-        let label = PaddingLabel(frame: CGRect(x: 0, y: 0, width: 500, height: 30))
+        let label = PaddingLabel(frame: CGRect(x: 0, y: 0, width: stackView.frame.width, height: 30))
         label.topInset = 5.0 //by default
         label.bottomInset = 5.0 //by default
         label.leftInset = 7.0 //by default
@@ -199,7 +199,7 @@ extension ViewController: UITableViewDataSource {
         layout.minimumLineSpacing = 10
         
         
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: stackView.frame.width+20, height: 44), collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: stackView.frame.width+20, height: 55), collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = UIColor(named: "Background")
@@ -219,7 +219,7 @@ extension ViewController: UICollectionViewDataSource{
     // MARK: - UICollectionViewDataSource Methods
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return weekdays.count
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -227,7 +227,7 @@ extension ViewController: UICollectionViewDataSource{
         cell.backgroundColor = UIColor(named: "Background")
         
         let button = UIButton()
-        button.setTitle(weekdays[indexPath.item], for: .normal)
+        button.setTitle(categories[indexPath.item], for: .normal)
         button.setTitleColor(UIColor(named: "TitleCol"), for: .normal)
         
         let titleWidth = button.titleLabel?.intrinsicContentSize.width ?? 0
@@ -248,7 +248,6 @@ extension ViewController: UICollectionViewDataSource{
     
     @objc func dayButtonTapped(_ sender: UIButton) {
         if let title = sender.currentTitle {
-            print("Button tapped: \(title)")
             switch title {
             case "Home":
                 model.getArticles()
