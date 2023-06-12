@@ -16,8 +16,11 @@ struct K {
 
 struct Values {
     static var searchItem: String = ""
-    static let healthNews =  "https://newsapi.org/v2/top-headlines/sources?category=health&\(K.apiKey)&language=en"
-    static let techNews =  "https://newsapi.org/v2/top-headlines/sources?category=technology&\(K.apiKey)&language=en"
-    static let sciNews =  "https://newsapi.org/v2/top-headlines/sources?category=science&\(K.apiKey)&language=en"
-    static let sportNews =  "https://newsapi.org/v2/top-headlines/sources?category=sports&\(K.apiKey)&language=en"
+    static let healthNews =  "https://newsapi.org/v2/top-headlines?category=health&\(K.apiKey)&language=en"
+    static let techNews =  "https://newsapi.org/v2/top-headlines?category=technology&\(K.apiKey)&language=en"
+    static let sciNews =  "https://newsapi.org/v2/top-headlines?category=science&\(K.apiKey)&language=en"
+    static let sportNews =  "https://newsapi.org/v2/top-headlines?category=sports&\(K.apiKey)&language=en"
+    static let generalNews =  "https://newsapi.org/v2/top-headlines?category=general&\(K.apiKey)&language=en"
+    static let showNews =  "https://newsapi.org/v2/top-headlines?category=entertainment&\(K.apiKey)&language=en"
+    static let businessNews =  "https://newsapi.org/v2/top-headlines?category=business&\(K.apiKey)&language=en"
 }

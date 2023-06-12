@@ -8,21 +8,17 @@
 import UIKit
 import SafariServices
 
-class ViewController: UIViewController, UITableViewDelegate {
-
+class ViewController: UIViewController, UITableViewDelegate, UICollectionViewDelegate {
     
     @IBOutlet weak var searchNews: UITextField!
     @IBOutlet weak var newsTable: UITableView!
     
     
     let cellSpacingHeight: CGFloat = 5
-    
-//    private var viewModels = [NewsTableCellViewModel]()
-//    private var articles = [NewsModel]()
-    
     var model = ArticleModel()
     var articles = [Article]()
     var searchText = ""
+    let weekdays = ["Home", "Tech", "Science", "Health", "Sport", "General", "Pastime", "Business"]
     
     let refreshControl = UIRefreshControl()
     
@@ -30,7 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         
         // Making a clear background for the Table View
-
+        
         newsTable.dataSource = self
         newsTable.delegate = self
         newsTable.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
@@ -42,23 +38,10 @@ class ViewController: UIViewController, UITableViewDelegate {
         
         
         // Header + Label + Pull to refresh
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 0))
-        
-        let label = PaddingLabel(frame: CGRect(x: 0, y: 0, width: 500, height: 30))
-        label.topInset = 5.0 //by default
-        label.bottomInset = 5.0 //by default
-        label.leftInset = 7.0 //by default
-        label.rightInset = 7.0 //by default
-        label.text = "Top Stories"
-        label.font = UIFont.boldSystemFont(ofSize: 20.0)
-        label.textColor = UIColor(named: "TitleCol")
-        label.textAlignment = .left
-        header.addSubview(label)
         newsTable.refreshControl = refreshControl
-        newsTable.tableHeaderView = header
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-            
+        
         
     }
     
@@ -116,11 +99,11 @@ extension ViewController: UITextFieldDelegate{
     }
     
     // Make the background color show through
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor.clear
-        return headerView
-    }
+    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    //        let headerView = UIView()
+    //        headerView.backgroundColor = UIColor.clear
+    //        return headerView
+    //    }
     
     //Clearing the text field after searching
     
@@ -130,12 +113,12 @@ extension ViewController: UITextFieldDelegate{
         
         searchNews.text = ""
     }
-
+    
 }
 
 
 extension ViewController: UITableViewDataSource {
-        
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return articles.count
@@ -146,13 +129,13 @@ extension ViewController: UITableViewDataSource {
         newsTable.deselectRow(at: indexPath, animated: true)
         
         let article = articles[indexPath.row]
-                
+        
         func openURL(_ urlString: Int) {
             guard let url = URL(string: article.url ?? "www.google.com") else {
                 // not a valid URL
                 return
             }
-
+            
             if ["http", "https"].contains(url.scheme?.lowercased() ?? "") {
                 // Can open with SFSafariViewController
                 let config = SFSafariViewController.Configuration()
@@ -167,13 +150,13 @@ extension ViewController: UITableViewDataSource {
         openURL(indexPath.row)
         
         
-        }
+    }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! NewsCell
-//        cell.layer.backgroundColor = UIColor.clear.cgColor
-                
+        //        cell.layer.backgroundColor = UIColor.clear.cgColor
+        
         let article = articles[indexPath.row]
         cell.clipsToBounds = true
         cell.backgroundColor = .clear
@@ -182,6 +165,120 @@ extension ViewController: UITableViewDataSource {
         cell.cellDescription.text = articles[indexPath.row].description
         cell.displayArticle(article)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 120
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 120))
+        headerView.backgroundColor = UIColor(named: "Background")
+        
+        let stackView = UIStackView(frame: CGRect(x: 16, y: 16, width: tableView.frame.width - 32, height: 88))
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = 8
+        
+        let label = PaddingLabel(frame: CGRect(x: 0, y: 0, width: 500, height: 30))
+        label.topInset = 5.0 //by default
+        label.bottomInset = 5.0 //by default
+        label.leftInset = 7.0 //by default
+        label.rightInset = 7.0 //by default
+        label.text = "Top Stories"
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+        label.textColor = UIColor(named: "TitleCol")
+        label.textAlignment = .left
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 15, left: 5, bottom: 10, right: 5)
+        layout.itemSize = CGSize(width: 65, height: 30)
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
+        
+        
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: stackView.frame.width+20, height: 44), collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.backgroundColor = UIColor(named: "Background")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "ButtonCell")
+        
+        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(collectionView)
+        headerView.addSubview(stackView)
+        
+        return headerView
+    }
+    
+}
+
+
+extension ViewController: UICollectionViewDataSource{
+    // MARK: - UICollectionViewDataSource Methods
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return weekdays.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCell", for: indexPath)
+        cell.backgroundColor = UIColor(named: "Background")
+        
+        let button = UIButton()
+        button.setTitle(weekdays[indexPath.item], for: .normal)
+        button.setTitleColor(UIColor(named: "TitleCol"), for: .normal)
+        
+        let titleWidth = button.titleLabel?.intrinsicContentSize.width ?? 0
+        
+        button.frame = CGRect(x: 0, y: 0, width: titleWidth+5, height: 30)
+        button.frame.inset(by: .init(top: 5, left: 10, bottom: 5, right: 10))
+        button.layer.cornerRadius = button.frame.height / 2
+        button.backgroundColor = UIColor(named: "DescrCol")
+        
+       
+        button.addTarget(self, action: #selector(dayButtonTapped(_:)), for: .touchUpInside)
+        
+        cell.contentView.addSubview(button)
+        return cell
+    }
+    
+    // MARK: - UICollectionViewDelegate Methods
+    
+    @objc func dayButtonTapped(_ sender: UIButton) {
+        if let title = sender.currentTitle {
+            print("Button tapped: \(title)")
+            switch title {
+            case "Home":
+                model.getArticles()
+                self.newsTable.reloadData()
+            case "Tech":
+                model.getTech()
+                self.newsTable.reloadData()
+            case "Science":
+                model.getScience()
+                self.newsTable.reloadData()
+            case "Health":
+                model.getHealth()
+                self.newsTable.reloadData()
+            case "Sport":
+                model.getSport()
+                self.newsTable.reloadData()
+            case "General":
+                model.getGeneral()
+                self.newsTable.reloadData()
+            case "Pastime":
+                model.getEntertainment()
+                self.newsTable.reloadData()
+            case "Business":
+                model.getBusiness()
+                self.newsTable.reloadData()
+            default:
+                model.getArticles()
+                self.newsTable.reloadData()
+            }
+        }
     }
 }
 
