@@ -23,6 +23,7 @@ trackIt is a News App project for iOS that utilizes the [NewsApi](https://newsap
 </p>
 
 **Reader Mode for Articles:** Articles open in a reader mode, providing a clean and distraction-free reading experience. 
+
 <img src="https://user-images.githubusercontent.com/80788036/245092979-bed6f5db-fad4-466b-8daa-dc07af2d9df7.png" width="33%">
 
 
