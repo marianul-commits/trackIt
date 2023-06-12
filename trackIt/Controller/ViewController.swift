@@ -70,7 +70,7 @@ extension ViewController: UITextFieldDelegate{
         reloadData()
     }
     
-    
+     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         var searchText = searchNews.text?.lowercased()
         Values.searchItem = searchText?.replacingOccurrences(of: " ", with: "%") ?? ""
