@@ -12,8 +12,6 @@ trackIt is a News App project for iOS that utilizes the [NewsApi](https://newsap
 
 **One Page Navigation:** The app follows a one-page navigation design, providing a seamless and intuitive user experience.
 
-**Apple-like UI:** The user interface of the app is inspired by Apple's design principles, ensuring a visually appealing and familiar look and feel.
-
 **Search Bar:** The app includes a search bar that allows users to search for specific news articles based on keywords or topics of interest.
 
 **Pinned Search Categories:** Users can pin their favorite or frequently searched categories for quick access and convenience.
