@@ -6,8 +6,8 @@ trackIt is a News App project for iOS that utilizes the [NewsApi](https://newsap
 
 **Dark Mode:** The app supports a dark mode theme, allowing users to switch between light and dark modes based on their preference. 
 <p float="left">
-<img src="https://user-images.githubusercontent.com/80788036/245092928-f9a8e735-7d18-4935-8a4d-06f7431ace30.png" alt= “” width="33%"/>
-<img src="https://user-images.githubusercontent.com/80788036/245092899-ddde80e5-c67b-44e3-a176-ffa35a5db81a.png" alt= “” width="33%" />
+<img src="https://user-images.githubusercontent.com/80788036/245189312-f7b73c79-2120-4d79-9ed2-4bd8b06f7ab2.png" alt= “” width="33%"/>
+<img src="https://user-images.githubusercontent.com/80788036/245189352-a1758f69-4cca-456e-bf68-a4c899805c9c.png" alt= “” width="33%" />
 </p>
 
 **One Page Navigation:** The app follows a one-page navigation design, providing a seamless and intuitive user experience.
@@ -18,14 +18,16 @@ trackIt is a News App project for iOS that utilizes the [NewsApi](https://newsap
 
 **Pinned Search Categories:** Users can pin their favorite or frequently searched categories for quick access and convenience.
 <p float="left">
-<img src="https://user-images.githubusercontent.com/80788036/245103011-a9ea0499-4611-48ed-98d7-fd2e62510095.png" alt= “” width="33%"/>
-<img src="https://user-images.githubusercontent.com/80788036/245103053-f1cc2ab0-b00b-4649-90e0-fea1c63c0fed.png" alt= “” width="33%" />
+<img src="https://user-images.githubusercontent.com/80788036/245190439-48319b83-1365-4599-acb1-67ad803b4a26.gif" alt= “” width="33%"/>
+<img src="https://user-images.githubusercontent.com/80788036/245190475-7390ceb7-01d6-45bc-816e-9c1a072e9936.gif" alt= “” width="33%" />
 </p>
 
 **Reader Mode for Articles:** Articles open in a reader mode, providing a clean and distraction-free reading experience. 
 
-<img src="https://user-images.githubusercontent.com/80788036/245092979-bed6f5db-fad4-466b-8daa-dc07af2d9df7.png" width="33%">
-
+<p float="left">
+<img src="https://user-images.githubusercontent.com/80788036/245189350-d0c2f78b-d1dc-47a0-8da7-4b0716848ab9.png" alt= “” width="33%"/>
+<img src="https://user-images.githubusercontent.com/80788036/245189361-8f5e7559-687f-4d01-bfef-c8395a787b9c.png" alt= “” width="33%" />
+</p>
 
 ## Installation
 
