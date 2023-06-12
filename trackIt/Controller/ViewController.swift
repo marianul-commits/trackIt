@@ -193,7 +193,7 @@ extension ViewController: UITableViewDataSource {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 15, left: 5, bottom: 10, right: 5)
-        layout.itemSize = CGSize(width: 65, height: 30)
+        layout.itemSize = CGSize(width: 85, height: 30)
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
@@ -232,10 +232,10 @@ extension ViewController: UICollectionViewDataSource{
         
         let titleWidth = button.titleLabel?.intrinsicContentSize.width ?? 0
         
-        button.frame = CGRect(x: 0, y: 0, width: titleWidth+5, height: 30)
+        button.frame = CGRect(x: 0, y: 0, width: 85, height: 30)
         button.frame.inset(by: .init(top: 5, left: 10, bottom: 5, right: 10))
         button.layer.cornerRadius = button.frame.height / 2
-        button.backgroundColor = UIColor(named: "DescrCol")
+        button.backgroundColor = UIColor(named: "BtnBkg")
         
        
         button.addTarget(self, action: #selector(dayButtonTapped(_:)), for: .touchUpInside)
