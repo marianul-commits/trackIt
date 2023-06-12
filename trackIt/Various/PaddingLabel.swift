@@ -25,10 +25,5 @@ import UIKit
                       height: size.height + topInset + bottomInset)
     }
     
-    open override var bounds: CGRect {
-        didSet {
-            // Supported Multiple Lines in Stack views
-//            preferredMaxLayoutWidth = bounds.width - (leftInset + rightInset)
-        }
-    }
 }
+

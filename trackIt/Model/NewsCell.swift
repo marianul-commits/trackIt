@@ -8,7 +8,7 @@
 import UIKit
 
 class NewsCell: UITableViewCell {
-
+    
     @IBOutlet weak var cellPhoto: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellSource: UILabel!
@@ -113,10 +113,10 @@ class NewsCell: UITableViewCell {
         
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

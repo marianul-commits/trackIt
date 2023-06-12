@@ -70,7 +70,7 @@ extension ViewController: UITextFieldDelegate{
         reloadData()
     }
     
-     
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         var searchText = searchNews.text?.lowercased()
         Values.searchItem = searchText?.replacingOccurrences(of: " ", with: "%") ?? ""
@@ -97,13 +97,6 @@ extension ViewController: UITextFieldDelegate{
             return false
         }
     }
-    
-    // Make the background color show through
-    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //        let headerView = UIView()
-    //        headerView.backgroundColor = UIColor.clear
-    //        return headerView
-    //    }
     
     //Clearing the text field after searching
     
@@ -155,7 +148,6 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! NewsCell
-        //        cell.layer.backgroundColor = UIColor.clear.cgColor
         
         let article = articles[indexPath.row]
         cell.clipsToBounds = true
@@ -237,7 +229,7 @@ extension ViewController: UICollectionViewDataSource{
         button.layer.cornerRadius = button.frame.height / 2
         button.backgroundColor = UIColor(named: "BtnBkg")
         
-       
+        
         button.addTarget(self, action: #selector(dayButtonTapped(_:)), for: .touchUpInside)
         
         cell.contentView.addSubview(button)

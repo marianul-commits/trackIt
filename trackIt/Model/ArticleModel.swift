@@ -16,6 +16,8 @@ class ArticleModel {
     
     var delegate:ArticleModernProtocol?
     
+    //MARK: -- getArticles
+    
     func getArticles(){
         
         // Fire off the request to the API
@@ -25,13 +27,13 @@ class ArticleModel {
         
         // Create a URL object
         let url = URL(string: stringUrl)
-      
+        
         // Check that it isn't a nil
         guard url != nil else {
             print("Coudn't create url object")
             return
         }
-       
+        
         // Get the URL Session
         let session = URLSession.shared
         
@@ -67,33 +69,28 @@ class ArticleModel {
             } // End if
             
         } // End Data Task
-       
         
         // Start the data task
         dataTask.resume()
-        
-        
-        
-        
     }
     
-    
+    //MARK: -- getSearch
     func getSearch(){
         
         // Fire off the request to the API
         
-        // Create a string URL
+        // Create a string URL with search value
         let stringUrl = "https://newsapi.org/v2/everything?sortBy=publishedAt&q=\(Values.searchItem)&language=en&\(K.apiKey)"
         
         // Create a URL object
         let url = URL(string: stringUrl)
-      
+        
         // Check that it isn't a nil
         guard url != nil else {
             print("Coudn't create url object")
             return
         }
-       
+        
         // Get the URL Session
         let session = URLSession.shared
         
@@ -113,7 +110,7 @@ class ArticleModel {
                     
                     // Get the articles
                     let articles = articleService.articles!
-        
+                    
                     // Pass it back to the view controller in the main thread
                     DispatchQueue.main.async {
                         self.delegate?.articleRetrived(articles)
@@ -129,17 +126,13 @@ class ArticleModel {
             } // End if
             
         } // End Data Task
-       
+        
         
         // Start the data task
         dataTask.resume()
-        
-        
-        
-        
     }
     
-    
+    //MARK: -- getScience
     func getScience(){
         
         // Fire off the request to the API
@@ -149,13 +142,13 @@ class ArticleModel {
         
         // Create a URL object
         let url = URL(string: stringUrl)
-      
+        
         // Check that it isn't a nil
         guard url != nil else {
             print("Coudn't create url object")
             return
         }
-       
+        
         // Get the URL Session
         let session = URLSession.shared
         
@@ -191,16 +184,14 @@ class ArticleModel {
             } // End if
             
         } // End Data Task
-       
+        
         
         // Start the data task
         dataTask.resume()
         
-        
-        
-        
     }
     
+    //MARK: -- getHealth
     func getHealth(){
         
         // Fire off the request to the API
@@ -210,13 +201,13 @@ class ArticleModel {
         
         // Create a URL object
         let url = URL(string: stringUrl)
-      
+        
         // Check that it isn't a nil
         guard url != nil else {
             print("Coudn't create url object")
             return
         }
-       
+        
         // Get the URL Session
         let session = URLSession.shared
         
@@ -252,14 +243,14 @@ class ArticleModel {
             } // End if
             
         } // End Data Task
-       
+        
         
         // Start the data task
         dataTask.resume()
         
-        
     }
     
+    //MARK: -- getTech
     func getTech(){
         
         // Fire off the request to the API
@@ -269,13 +260,13 @@ class ArticleModel {
         
         // Create a URL object
         let url = URL(string: stringUrl)
-      
+        
         // Check that it isn't a nil
         guard url != nil else {
             print("Coudn't create url object")
             return
         }
-       
+        
         // Get the URL Session
         let session = URLSession.shared
         
@@ -311,7 +302,7 @@ class ArticleModel {
             } // End if
             
         } // End Data Task
-       
+        
         
         // Start the data task
         dataTask.resume()
@@ -319,6 +310,7 @@ class ArticleModel {
         
     }
     
+    //MARK: -- getSport
     func getSport(){
         
         // Fire off the request to the API
@@ -328,13 +320,13 @@ class ArticleModel {
         
         // Create a URL object
         let url = URL(string: stringUrl)
-      
+        
         // Check that it isn't a nil
         guard url != nil else {
             print("Coudn't create url object")
             return
         }
-       
+        
         // Get the URL Session
         let session = URLSession.shared
         
@@ -370,7 +362,7 @@ class ArticleModel {
             } // End if
             
         } // End Data Task
-       
+        
         
         // Start the data task
         dataTask.resume()
@@ -378,6 +370,7 @@ class ArticleModel {
         
     }
     
+    //MARK: -- getBusiness
     func getBusiness(){
         
         // Fire off the request to the API
@@ -387,13 +380,13 @@ class ArticleModel {
         
         // Create a URL object
         let url = URL(string: stringUrl)
-      
+        
         // Check that it isn't a nil
         guard url != nil else {
             print("Coudn't create url object")
             return
         }
-       
+        
         // Get the URL Session
         let session = URLSession.shared
         
@@ -429,16 +422,14 @@ class ArticleModel {
             } // End if
             
         } // End Data Task
-       
+        
         
         // Start the data task
         dataTask.resume()
         
-        
-        
-        
     }
     
+    //MARK: -- getGeneral
     func getGeneral(){
         
         // Fire off the request to the API
@@ -448,13 +439,13 @@ class ArticleModel {
         
         // Create a URL object
         let url = URL(string: stringUrl)
-      
+        
         // Check that it isn't a nil
         guard url != nil else {
             print("Coudn't create url object")
             return
         }
-       
+        
         // Get the URL Session
         let session = URLSession.shared
         
@@ -490,17 +481,14 @@ class ArticleModel {
             } // End if
             
         } // End Data Task
-       
+        
         
         // Start the data task
         dataTask.resume()
         
-        
-        
-        
     }
     
-    
+    //MARK: -- getEntertainment
     func getEntertainment(){
         
         // Fire off the request to the API
@@ -510,13 +498,13 @@ class ArticleModel {
         
         // Create a URL object
         let url = URL(string: stringUrl)
-      
+        
         // Check that it isn't a nil
         guard url != nil else {
             print("Coudn't create url object")
             return
         }
-       
+        
         // Get the URL Session
         let session = URLSession.shared
         
@@ -552,13 +540,10 @@ class ArticleModel {
             } // End if
             
         } // End Data Task
-       
+        
         
         // Start the data task
         dataTask.resume()
-        
-        
-        
         
     }
     
