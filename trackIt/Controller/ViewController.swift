@@ -19,6 +19,8 @@ class ViewController: UIViewController, UITableViewDelegate, UICollectionViewDel
     var articles = [Article]()
     var searchText = ""
     let categories = ["Home", "Tech", "Science", "Health", "Sport", "General", "Pastime", "Business"]
+    var collectionView: UICollectionView!
+    var selectedButtonIndex: Int = 0
     
     let refreshControl = UIRefreshControl()
     
@@ -191,9 +193,10 @@ extension ViewController: UITableViewDataSource {
         layout.minimumLineSpacing = 10
         
         
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: stackView.frame.width+20, height: 55), collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: stackView.frame.width+20, height: 55), collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.isScrollEnabled = true
         collectionView.backgroundColor = UIColor(named: "Background")
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "ButtonCell")
         
@@ -224,13 +227,15 @@ extension ViewController: UICollectionViewDataSource{
         
         let titleWidth = button.titleLabel?.intrinsicContentSize.width ?? 0
         
-        button.frame = CGRect(x: 0, y: 0, width: 85, height: 30)
+        button.frame = CGRect(x: 0, y: 0, width: 85, height: 27)
         button.frame.inset(by: .init(top: 5, left: 10, bottom: 5, right: 10))
         button.layer.cornerRadius = button.frame.height / 2
-        button.backgroundColor = UIColor(named: "BtnBkg")
-        
-        
-        button.addTarget(self, action: #selector(dayButtonTapped(_:)), for: .touchUpInside)
+
+        let isSelected = indexPath.item == selectedButtonIndex
+            
+        button.backgroundColor = isSelected ? UIColor(named: "SelectedBtnBkg") : UIColor(named: "BtnBkg")
+                    
+        button.addTarget(self, action: #selector(categoryTapped(_:)), for: .touchUpInside)
         
         cell.contentView.addSubview(button)
         return cell
@@ -238,7 +243,8 @@ extension ViewController: UICollectionViewDataSource{
     
     // MARK: - UICollectionViewDelegate Methods
     
-    @objc func dayButtonTapped(_ sender: UIButton) {
+    @objc func categoryTapped(_ sender: UIButton) {
+
         if let title = sender.currentTitle {
             switch title {
             case "Home":
@@ -269,7 +275,18 @@ extension ViewController: UICollectionViewDataSource{
                 model.getArticles()
                 self.newsTable.reloadData()
             }
+            
+            // Get the index of the selected button
+            if let index = categories.firstIndex(of: title) {
+                selectedButtonIndex = index
+            }
+            
+            // Reload the collection view to update button appearance
+            collectionView.reloadData()
+            
+            
         }
+        
     }
 }
 
