@@ -39,7 +39,9 @@ Please note that you may need to provide your own API key for the News API in or
 ## Requirements
 
 Xcode 12.0 or later
+
 Swift 5.0 or later
+
 iOS 13.0 or later
 
 
