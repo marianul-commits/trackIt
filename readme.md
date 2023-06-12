@@ -1,46 +1,47 @@
 # trackIt
 
-trackIt is a news aggregation app made in Swift using [NewsApi](https://newsapi.org)
-
-## Usage
-
-```bash
-git clone https://github.com/marianul-commits/trackIt.git
-```
-
-Feel free to change the API key with your own
-The API Key is located in 
-```swift
-Constants.swift
-static let apiKey = "YOUR_API_KEY"
-```
-## To Come
-
-• Quick Searches for Sports, Tech, Health & Science 
-
+trackIt is a News App project for iOS that utilizes the [NewsApi](https://newsapi.org) to fetch and display news articles. The app is built using Swift and UIKit framework, and it incorporates several key features to enhance user experience and accessibility.
 
 ## Features
 
-• Displays the top news stories parsed from the News API
+**Dark Mode:** The app supports a dark mode theme, allowing users to switch between light and dark modes based on their preference. 
+<p float="left">
+<img src="https://user-images.githubusercontent.com/80788036/245092928-f9a8e735-7d18-4935-8a4d-06f7431ace30.png" alt= “” width="33%"/>
+<img src="https://user-images.githubusercontent.com/80788036/245092899-ddde80e5-c67b-44e3-a176-ffa35a5db81a.png" alt= “” width="33%" />
+</p>
 
-• MVC Design
+**One Page Navigation:** The app follows a one-page navigation design, providing a seamless and intuitive user experience.
 
-• Search for news in your interest
+**Apple-like UI:** The user interface of the app is inspired by Apple's design principles, ensuring a visually appealing and familiar look and feel.
 
-• Self developed UI inspired by Apple
+**Search Bar:** The app includes a search bar that allows users to search for specific news articles based on keywords or topics of interest.
 
-• Loads news content with in-app browser using WebKit
+**Pinned Search Categories:** Users can pin their favorite or frequently searched categories for quick access and convenience.
 
-### Light & Dark Mode
-![Alt text](https://github.com/marianul-commits/trackIt/blob/main/Photos/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20-%202023-06-09%20at%2011.43.03.png "Light Mode")
+**Reader Mode for Articles:** Articles open in a reader mode, providing a clean and distraction-free reading experience. <img src="https://user-images.githubusercontent.com/80788036/245092979-bed6f5db-fad4-466b-8daa-dc07af2d9df7.png" width="33%">
 
-![Alt text](https://github.com/marianul-commits/trackIt/blob/main/Photos/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20-%202023-06-09%20at%2011.42.38.png "Dark Mode")
 
-### Links open directly in reader mode
+## Installation
 
-![Alt text](https://github.com/marianul-commits/trackIt/blob/main/Photos/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20-%202023-06-09%20at%2011.43.16.png "Reader Mode")
+To run the News App project on your iOS device or simulator, follow these steps:
 
+Clone the repository to your local machine.
+Open the project in Xcode.
+Ensure you have the necessary dependencies and frameworks installed.
+Build and run the app on your desired iOS device or simulator.
+Please note that you may need to provide your own API key for the News API in order to fetch the news articles successfully. Make sure to update the relevant code with your API key.
+
+## Requirements
+
+Xcode 12.0 or later
+Swift 5.0 or later
+iOS 13.0 or later
+
+
+## Credits
+
+The News App project utilizes the News API (http://newsapi.org) to fetch news articles. The design inspiration for the Apple-like UI comes from Apple's official design guidelines and principles.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+This project is licensed under the MIT License. Feel free to modify and use it according to your needs.
