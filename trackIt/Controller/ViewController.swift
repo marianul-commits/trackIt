@@ -224,9 +224,7 @@ extension ViewController: UICollectionViewDataSource{
         let button = UIButton()
         button.setTitle(categories[indexPath.item], for: .normal)
         button.setTitleColor(UIColor(named: "TitleCol"), for: .normal)
-        
-        let titleWidth = button.titleLabel?.intrinsicContentSize.width ?? 0
-        
+
         button.frame = CGRect(x: 0, y: 0, width: 85, height: 27)
         button.frame.inset(by: .init(top: 5, left: 10, bottom: 5, right: 10))
         button.layer.cornerRadius = button.frame.height / 2
