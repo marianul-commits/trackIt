@@ -17,6 +17,10 @@ trackIt is a News App project for iOS that utilizes the [NewsApi](https://newsap
 **Search Bar:** The app includes a search bar that allows users to search for specific news articles based on keywords or topics of interest.
 
 **Pinned Search Categories:** Users can pin their favorite or frequently searched categories for quick access and convenience.
+<p float="left">
+<img src="https://user-images.githubusercontent.com/80788036/245103011-a9ea0499-4611-48ed-98d7-fd2e62510095.png" alt= “” width="33%"/>
+<img src="https://user-images.githubusercontent.com/80788036/245103053-f1cc2ab0-b00b-4649-90e0-fea1c63c0fed.png" alt= “” width="33%" />
+</p>
 
 **Reader Mode for Articles:** Articles open in a reader mode, providing a clean and distraction-free reading experience. 
 <img src="https://user-images.githubusercontent.com/80788036/245092979-bed6f5db-fad4-466b-8daa-dc07af2d9df7.png" width="33%">
