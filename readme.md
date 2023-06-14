@@ -52,4 +52,4 @@ The News App project utilizes the News API (http://newsapi.org) to fetch news ar
 
 ## License
 
-This project is licensed under the MIT License. Feel free to modify and use it according to your needs.
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License. Feel free to modify and use it according to your needs.
