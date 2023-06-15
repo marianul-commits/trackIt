@@ -58,7 +58,6 @@ class NewsCell: UITableViewCell {
                 // Save the date into cache
                 CacheManager.saveData(urlString, data!)
                 
-                
                 // Check if the url string that the data task went off download matches the article this cell is set to display
                 if self.articleToDisplay!.urlToImage == urlString {
                     
@@ -72,16 +71,11 @@ class NewsCell: UITableViewCell {
                             self.cellPhoto.alpha = 1
                             
                         }, completion: nil)
-                        
                         return
-                        
                     }
                 }
-                
-                
             } // End if
         } // End data task
-        
         // Kick off the datatask
         dataTask.resume()
     }
@@ -116,8 +110,6 @@ class NewsCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         // Configure the view for the selected state
     }
-    
 }

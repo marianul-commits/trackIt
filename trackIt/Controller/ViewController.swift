@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UICollectionViewDel
     var model = ArticleModel()
     var articles = [Article]()
     var searchText = ""
-    let categories = ["Home", "Tech", "Science", "Health", "Sport", "General", "Pastime", "Business"]
+    let categories = ["Home", "Tech", "Science", "Health", "Sport", "Pastime", "Business"]
     var collectionView: UICollectionView!
     var selectedButtonIndex: Int = 0
     
@@ -28,7 +28,6 @@ class ViewController: UIViewController, UITableViewDelegate, UICollectionViewDel
         super.viewDidLoad()
         
         // Making a clear background for the Table View
-        
         newsTable.dataSource = self
         newsTable.delegate = self
         newsTable.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
@@ -36,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UICollectionViewDel
         newsTable.layer.backgroundColor = UIColor.clear.cgColor
         searchNews.delegate = self
         model.delegate = self
-        model.getArticles()
+        model.getArticles(withUrl: Values.homeNews)
         
         
         // Header + Label + Pull to refresh
@@ -48,7 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UICollectionViewDel
     }
     
     @objc func refresh(_ sender: AnyObject){
-        model.getArticles()
+        model.getArticles(withUrl: Values.homeNews)
         newsTable.reloadData()
         refreshControl.endRefreshing()
     }
@@ -192,7 +191,6 @@ extension ViewController: UITableViewDataSource {
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
         
-        
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: stackView.frame.width+20, height: 55), collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -224,15 +222,15 @@ extension ViewController: UICollectionViewDataSource{
         let button = UIButton()
         button.setTitle(categories[indexPath.item], for: .normal)
         button.setTitleColor(UIColor(named: "TitleCol"), for: .normal)
-
+        
         button.frame = CGRect(x: 0, y: 0, width: 85, height: 27)
         button.frame.inset(by: .init(top: 5, left: 10, bottom: 5, right: 10))
         button.layer.cornerRadius = button.frame.height / 2
-
+        
         let isSelected = indexPath.item == selectedButtonIndex
-            
+        
         button.backgroundColor = isSelected ? UIColor(named: "SelectedBtnBkg") : UIColor(named: "BtnBkg")
-                    
+        
         button.addTarget(self, action: #selector(categoryTapped(_:)), for: .touchUpInside)
         
         cell.contentView.addSubview(button)
@@ -242,49 +240,41 @@ extension ViewController: UICollectionViewDataSource{
     // MARK: - UICollectionViewDelegate Methods
     
     @objc func categoryTapped(_ sender: UIButton) {
-
+        
         if let title = sender.currentTitle {
             switch title {
             case "Home":
-                model.getArticles()
+                model.getArticles(withUrl: Values.homeNews)
                 self.newsTable.reloadData()
             case "Tech":
-                model.getTech()
+                model.getArticles(withUrl: Values.techNews)
                 self.newsTable.reloadData()
             case "Science":
-                model.getScience()
+                model.getArticles(withUrl: Values.sciNews)
                 self.newsTable.reloadData()
             case "Health":
-                model.getHealth()
+                model.getArticles(withUrl: Values.healthNews)
                 self.newsTable.reloadData()
             case "Sport":
-                model.getSport()
-                self.newsTable.reloadData()
-            case "General":
-                model.getGeneral()
+                model.getArticles(withUrl: Values.sportNews)
                 self.newsTable.reloadData()
             case "Pastime":
-                model.getEntertainment()
+                model.getArticles(withUrl: Values.showNews)
                 self.newsTable.reloadData()
             case "Business":
-                model.getBusiness()
+                model.getArticles(withUrl: Values.businessNews)
                 self.newsTable.reloadData()
             default:
-                model.getArticles()
+                model.getArticles(withUrl: Values.homeNews)
                 self.newsTable.reloadData()
             }
-            
             // Get the index of the selected button
             if let index = categories.firstIndex(of: title) {
                 selectedButtonIndex = index
             }
-            
             // Reload the collection view to update button appearance
             collectionView.reloadData()
-            
-            
         }
-        
     }
 }
 
