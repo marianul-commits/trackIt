@@ -21,6 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UICollectionViewDel
     let categories = ["Home", "Tech", "Science", "Health", "Sport", "Pastime", "Business"]
     var collectionView: UICollectionView!
     var selectedButtonIndex: Int = 0
+    var textValue = "Top Stories"
     
     let refreshControl = UIRefreshControl()
     
@@ -179,7 +180,7 @@ extension ViewController: UITableViewDataSource {
         label.bottomInset = 5.0 //by default
         label.leftInset = 7.0 //by default
         label.rightInset = 7.0 //by default
-        label.text = "Top Stories"
+        label.text = textValue
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
         label.textColor = UIColor(named: "TitleCol")
         label.textAlignment = .left
@@ -245,27 +246,35 @@ extension ViewController: UICollectionViewDataSource{
             switch title {
             case "Home":
                 model.getArticles(withUrl: Values.homeNews)
+                textValue = "Top Stories"
                 self.newsTable.reloadData()
             case "Tech":
                 model.getArticles(withUrl: Values.techNews)
+                textValue = "Tech News"
                 self.newsTable.reloadData()
             case "Science":
                 model.getArticles(withUrl: Values.sciNews)
+                textValue = "Science News"
                 self.newsTable.reloadData()
             case "Health":
                 model.getArticles(withUrl: Values.healthNews)
+                textValue = "Health News"
                 self.newsTable.reloadData()
             case "Sport":
                 model.getArticles(withUrl: Values.sportNews)
+                textValue = "Sport News"
                 self.newsTable.reloadData()
             case "Pastime":
                 model.getArticles(withUrl: Values.showNews)
+                textValue = "Pastime News"
                 self.newsTable.reloadData()
             case "Business":
                 model.getArticles(withUrl: Values.businessNews)
+                textValue = "Bussines News"
                 self.newsTable.reloadData()
             default:
                 model.getArticles(withUrl: Values.homeNews)
+                textValue = "Top Stories"
                 self.newsTable.reloadData()
             }
             // Get the index of the selected button
